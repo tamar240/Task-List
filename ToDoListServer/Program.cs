@@ -32,15 +32,15 @@ var app = builder.Build();
 app.UseCors("AllowAll");
 
 // הפעלת Swagger בהתאם לסביבה
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger(); // יוצר את המסמכים של Swagger
     app.UseSwaggerUI(options => // יוצר את הממשק של Swagger UI
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
         options.RoutePrefix = string.Empty; // מציג את Swagger ב-root של האפליקציה
     });
-}
+// }
 
 //swagger
 app.UseSwagger();
@@ -125,7 +125,7 @@ app.MapDelete("/items/{id}", async (IDbConnection db, int id) =>
 });
 
 // ברירת מחדל
-app.MapGet("/", () => "Welcome to the Todo API!");
+app.MapGet("/", () => "Task List API is runnig!");
 app.Run();
 
 //מיפויים
